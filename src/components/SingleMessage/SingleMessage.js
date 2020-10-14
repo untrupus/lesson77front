@@ -1,10 +1,17 @@
 import React from 'react';
 import './SingleMessage.css';
 
-const SingleMessage = () => {
+const SingleMessage = props => {
     return (
-        <div>
-
+        <div className="singleMessage">
+            <div className="messageHead">
+                <p className="name"><input type="checkbox"/>{props.name}</p>
+                <span>{props.datetime} Id: {props.id} <span className="triangle">&#10148;</span> </span>
+            </div>
+            <div className="messageBody">
+                <img src={props.src} className="img" alt="message"/>
+                <p>{props.text}</p>
+            </div>
         </div>
     );
 };

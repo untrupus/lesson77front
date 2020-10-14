@@ -1,0 +1,10 @@
+.thread {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px 25px;
+    cursor: pointer;
+}
+
+.thread:hover {
+    color: #cc3b05;
+}

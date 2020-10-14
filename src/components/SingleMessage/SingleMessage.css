@@ -1,0 +1,53 @@
+.singleMessage {
+    margin: 10px 10px 5px 25px;
+    background: #D6DAF0;
+    padding: 15px;
+    display: inline-block;
+    position: relative;
+    border-right: 1px solid #8b8fa6;
+    border-bottom: 1px solid #8b8fa6;
+}
+
+.singleMessage::before {
+    content: '>>';
+    position: absolute;
+    top: 8px;
+    left: -17px;
+    color: darkgrey;
+    font-size: 12px;
+}
+
+.messageHead {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.messageHead span {
+    margin-left: 10px;
+}
+
+.triangle {
+    font-size: 20px;
+}
+
+.triangle:hover {
+    color: #cc3b05;
+}
+
+.name {
+    font-weight: bold;
+    color: green;
+    margin: 0;
+}
+
+.messageBody {
+    display: flex;
+    align-items: center;
+}
+
+.img {
+    margin-right: 10px;
+    height: 120px;
+    width: auto;
+}
