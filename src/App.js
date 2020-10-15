@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from "react-redux";
-import {showModal} from "./store/actionTypes";
+import {showModal, getMessages} from "./store/actionTypes";
 import SingleMessage from "./components/SingleMessage/SingleMessage";
 import Modal from "./components/Modal/Modal";
 import './App.css';
@@ -8,11 +8,29 @@ import './App.css';
 function App() {
     const modal = useSelector(state => state.modal);
     const dispatch = useDispatch();
+    const messages = useSelector(state => state.messages);
+
+    useEffect(() => {
+        dispatch(getMessages());
+    }, [dispatch]);
+
+    const messageList = messages.map(message => {
+        return (
+            <SingleMessage
+                name={message.name ? message.name : 'Anonymous'}
+                datetime={message.datetime.substr(0, 19).replace('T', ' ')}
+                src="https://i.4cdn.org/lgbt/1602668289744s.jpg"
+                id={message.id}
+                key={message.id}
+                text={message.text}
+            />
+        )
+    });
 
     return (
         <div className="App">
             <p className="thread"
-                onClick={() => dispatch(showModal())}
+               onClick={() => dispatch(showModal())}
             >[Start a New Thread]</p>
             {modal ? <Modal/> : null}
 
@@ -30,6 +48,8 @@ function App() {
                 id="sdjkdkjs^&%"
                 text="I want everyone to know what a dumb nympho slut"
             />
+
+            {messageList}
         </div>
     );
 }

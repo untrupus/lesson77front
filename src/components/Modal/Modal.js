@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {closeModal} from "../../store/actionTypes";
+import {useDispatch} from "react-redux";
+import {closeModal, postMessage} from "../../store/actionTypes";
 import './Modal.css';
 
 const Modal = () => {
-    const modal = useSelector(state => state.modal);
     const dispatch = useDispatch();
 
     const [message, setMessage] = useState({
@@ -18,8 +17,14 @@ const Modal = () => {
         setMessage(prevState => ({...prevState, [name]: value}));
     };
 
+    const sendMessage = () => {
+        dispatch(postMessage(message));
+        setMessage({name: '', text: ''});
+        dispatch(closeModal());
+    };
+
     return (
-        <div className="backdrop" onClick={() => dispatch(closeModal())}>
+        <div className="backdrop">
             <div className="modal">
                 <input type="text"
                        name="name"
@@ -35,7 +40,14 @@ const Modal = () => {
                        placeholder="Message"
                        onChange={onChangeHandler}
                 />
-                <button type="button" className="btn">Post</button>
+                <button type="button" className="btn"
+                        onClick={sendMessage}
+                >Post
+                </button>
+                <button type="button" className="btn"
+                        onClick={() => dispatch(closeModal())}
+                >Close
+                </button>
             </div>
         </div>
     );

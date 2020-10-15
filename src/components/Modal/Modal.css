@@ -4,7 +4,7 @@
     background-color: #D6DAF0;
     width: 70%;
     border: 2px solid #8b8fa6;
-    padding: 30px;
+    padding: 50px;
     left: 15%;
     top: 30%;
     box-sizing: border-box;
@@ -24,7 +24,7 @@
     z-index: 100;
     left: 0;
     top: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .field {

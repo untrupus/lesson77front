@@ -6,7 +6,9 @@ const SingleMessage = props => {
         <div className="singleMessage">
             <div className="messageHead">
                 <p className="name"><input type="checkbox"/>{props.name}</p>
-                <span>{props.datetime} Id: {props.id} <span className="triangle">&#10148;</span> </span>
+                <span><b>{props.datetime}</b></span>
+                <span>Id: {props.id}</span>
+                <span className="triangle">&#10148;</span>
             </div>
             <div className="messageBody">
                 <img src={props.src} className="img" alt="message"/>
