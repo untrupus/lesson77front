@@ -36,5 +36,10 @@
 
 .btn {
     display: inline-block;
-    margin-right: 20px;
+    margin: 20px;
+}
+
+.btns {
+    margin: 0 auto;
+    text-align: center;
 }

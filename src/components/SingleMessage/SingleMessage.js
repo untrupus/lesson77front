@@ -11,7 +11,7 @@ const SingleMessage = props => {
                 <span className="triangle">&#10148;</span>
             </div>
             <div className="messageBody">
-                <img src={props.src} className="img" alt="message"/>
+                {props.src ? <img src={"http://localhost:8000/uploads/" + props.src} className="img" alt="message"/> : null}
                 <p>{props.text}</p>
             </div>
         </div>
